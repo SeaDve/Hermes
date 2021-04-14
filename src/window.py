@@ -35,6 +35,8 @@ class HermesWindow(Handy.ApplicationWindow):
         self.main_leaflet.connect("notify::folded", self.on_leaflet_notify)
         self.back_button.connect("clicked", self.on_back_button_clicked)
 
+        self.back_button.set_visible(self.main_leaflet.get_folded())
+
         for index in range(10):
             self.contacts_listbox.insert(ContactRow(), -1)
             if index % 2:
@@ -62,7 +64,9 @@ class ContactRow(Handy.ActionRow):
         self.add_prefix(self.avatar)
 
         self.set_title("Dave Patrick")
-        self.set_subtitle("Hi! It's been a long time. Without you my friend.")
+        message = "Hello There"
+        time = "22∶05"
+        self.set_subtitle(f"{message} • {time}")
 
 
 @Gtk.Template(resource_path='/io/github/seadve/Hermes/message.ui')

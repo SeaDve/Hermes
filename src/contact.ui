@@ -10,6 +10,6 @@
   <object class="HdyAvatar" id="avatar">
     <property name="visible">True</property>
     <property name="can-focus">False</property>
-    <property name="size">42</property>
+    <property name="size">36</property>
   </object>
 </interface>
