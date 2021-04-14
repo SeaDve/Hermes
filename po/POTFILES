@@ -1,0 +1,7 @@
+data/io.github.seadve.Hermes.desktop.in
+data/io.github.seadve.Hermes.appdata.xml.in
+data/io.github.seadve.Hermes.gschema.xml
+src/window.ui
+src/main.py
+src/window.py
+
