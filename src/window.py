@@ -54,19 +54,19 @@ class HermesWindow(Handy.ApplicationWindow):
 
 
 @Gtk.Template(resource_path='/io/github/seadve/Hermes/contact.ui')
-class ContactRow(Handy.ActionRow):
+class ContactRow(Gtk.Box):
     __gtype_name__ = 'ContactRow'
 
-    avatar = Gtk.Template.Child()
+    time_label = Gtk.Template.Child()
+    name_label = Gtk.Template.Child()
+    last_message_label = Gtk.Template.Child()
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.add_prefix(self.avatar)
 
-        self.set_title("Dave Patrick")
-        message = "Hello There"
-        time = "22∶05"
-        self.set_subtitle(f"{message} • {time}")
+        self.name_label.set_label("Dave Patrick")
+        self.last_message_label.set_label("Hello There")
+        self.time_label.set_label("22∶05")
 
 
 @Gtk.Template(resource_path='/io/github/seadve/Hermes/message.ui')
@@ -79,6 +79,8 @@ class MessageRow(Gtk.Box):
     def __init__(self, is_from_self, **kwargs):
         super().__init__(**kwargs)
 
+        self.message_style_context = self.message_label.get_style_context()
+
         if is_from_self:
             self.set_from_self_mode()
         else:
@@ -86,8 +88,17 @@ class MessageRow(Gtk.Box):
 
     def set_from_self_mode(self):
         self.avatar.set_visible(False)
+        self.message_label.set_margin_start(72)
         self.message_label.set_halign(Gtk.Align.END)
+        self.message_label.set_justify(Gtk.Justification.RIGHT)
+        self.message_style_context.add_class("message-out")
+        self.message_style_context.remove_class("message-in")
+
 
     def set_from_contact_mode(self):
         self.avatar.set_visible(True)
+        self.message_label.set_margin_end(72)
         self.message_label.set_halign(Gtk.Align.START)
+        self.message_label.set_justify(Gtk.Justification.LEFT)
+        self.message_style_context.add_class("message-in")
+        self.message_style_context.remove_class("message-out")

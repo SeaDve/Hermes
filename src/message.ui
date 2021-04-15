@@ -6,13 +6,12 @@
   <template class="MessageRow" parent="GtkBox">
     <property name="visible">True</property>
     <property name="can-focus">False</property>
-    <property name="margin-start">12</property>
-    <property name="margin-end">12</property>
     <property name="spacing">12</property>
     <child>
       <object class="HdyAvatar" id="avatar">
         <property name="visible">True</property>
         <property name="can-focus">False</property>
+        <property name="valign">start</property>
         <property name="size">32</property>
       </object>
       <packing>
@@ -26,8 +25,11 @@
         <property name="visible">True</property>
         <property name="can-focus">False</property>
         <property name="halign">end</property>
-        <property name="label" translatable="yes">Hi, so here I am . Test mic test, 123. An airplane and an dog.</property>
+        <property name="label" translatable="yes">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</property>
         <property name="wrap">True</property>
+        <style>
+          <class name="message-in"/>
+        </style>
       </object>
       <packing>
         <property name="expand">True</property>

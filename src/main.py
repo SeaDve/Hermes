@@ -20,7 +20,7 @@ import sys
 import gi
 gi.require_version('Gtk', '3.0')
 gi.require_version('Handy', '1')
-from gi.repository import Gtk, Gio, Handy
+from gi.repository import Gtk, Gio, Handy, Gdk
 
 from .window import HermesWindow
 
@@ -32,6 +32,13 @@ class Application(Gtk.Application):
 
     def do_startup(self):
         Gtk.Application.do_startup(self)
+
+        css_provider = Gtk.CssProvider()
+        css_provider.load_from_resource('/io/github/seadve/Hermes/style.css')
+        screen = Gdk.Screen.get_default()
+        Gtk.StyleContext.add_provider_for_screen(
+            screen, css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION,
+        )
 
         Handy.init()
 
