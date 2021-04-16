@@ -12,6 +12,7 @@
         <property name="visible">True</property>
         <property name="can-focus">False</property>
         <property name="valign">start</property>
+        <property name="text">Dave Patrick</property>
         <property name="size">32</property>
       </object>
       <packing>
@@ -27,6 +28,7 @@
         <property name="halign">end</property>
         <property name="label" translatable="yes">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</property>
         <property name="wrap">True</property>
+        <property name="selectable">True</property>
         <style>
           <class name="message-in"/>
         </style>

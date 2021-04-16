@@ -54,18 +54,18 @@ class HermesWindow(Handy.ApplicationWindow):
 
 
 @Gtk.Template(resource_path='/io/github/seadve/Hermes/contact.ui')
-class ContactRow(Gtk.Box):
+class ContactRow(Handy.ActionRow):
     __gtype_name__ = 'ContactRow'
 
     time_label = Gtk.Template.Child()
-    name_label = Gtk.Template.Child()
-    last_message_label = Gtk.Template.Child()
+    avatar = Gtk.Template.Child()
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-        self.name_label.set_label("Dave Patrick")
-        self.last_message_label.set_label("Hello There")
+        self.add_prefix(self.avatar)
+        self.set_title("Dave Patrick")
+        self.set_subtitle("Hello There")
         self.time_label.set_label("22∶05")
 
 
